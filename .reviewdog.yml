@@ -5,5 +5,5 @@ runner:
     level: warning
   govet:
     cmd: go vet ./...
-    format: govet
+    format: golint
     level: error
