@@ -1,0 +1,9 @@
+runner:
+  golint:
+    cmd: golint ./...
+    format: golint
+    level: warning
+  govet:
+    cmd: go vet ./...
+    format: govet
+    level: error
