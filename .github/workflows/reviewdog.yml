@@ -21,9 +21,10 @@ jobs:
           go get -u golang.org/x/lint/golint
 
       - name: Setup reviewdog
-        uses: reviewdog/action-setup@v1
-        with:
-          reviewdog_version: latest
+        run: |
+          mkdir -p $HOME/bin && curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b $HOME/bin
+          echo ::add-path::$HOME/bin
+          echo ::add-path::$(go env GOPATH)/bin # for Go projects
 
       - name: Run reviewdog
         env:
